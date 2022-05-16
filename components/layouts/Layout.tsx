@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Navbar } from '../ui'
 
 interface Song {
   title?: string
@@ -16,9 +17,12 @@ export const Layout: React.FC<Song> = ({ children, title }): React.ReactElement 
         <meta name='keywords' content={`vocaloid, vocaloid app, ${title}`} />
       </Head>
 
-      {/* NavBar */}
+      <Navbar />
 
-      <main>
+      <main style={{
+        padding: '0px 20px'
+      }}
+      >
         {children}
       </main>
     </>
