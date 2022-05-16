@@ -1,5 +1,7 @@
 .DEFAULT_GOAL := help
 
+APP_NAME = vocalo-app-v1
+
 RED = \033[0;31m
 GREEN = \033[0;32m
 NOCOLOR = \033[0m
@@ -14,10 +16,10 @@ dev: ## Start development server
 	@yarn dev
 
 build: ## Build the server
-	@yarn build
+	@docker build -t $(APP_NAME) .
 
 start: ## Start the built application
-	@yarn start -p 3002
+	@docker run --rm --name=$(APP_NAME) -p 3002:3000 $(APP_NAME)
 
 lint: ## Lint the code
 	@yarn lint
