@@ -28,7 +28,7 @@ make dev
 
 There are 2 git hooks included. They're inside the `./doc/hooks` directory and they will run the pre-commit and pre-push tasks before pushing to any remote.
 
-The pre-commit task is intended to run all the checks you consider before committing. At this very moment, it tries to format the code with ts-standard style guide.
+The pre-commit task is intended to run all the checks you consider before committing. At this very moment, it tries to format the code with [ts-standard style guide](https://github.com/standard/ts-standard).
 
 The pre-push task is intended to run all the checks you consider before pushing. At this very moment, does the same validation as pre-commit.
 
