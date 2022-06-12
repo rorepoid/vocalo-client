@@ -2,33 +2,38 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Clone this repository: `git clone https://github.com/rorepoid/vocalo-client.git`
+
+Once done you can get the list of commands to run this project with the following one:
 
 ```bash
-npm run dev
-# or
-yarn dev
+make help
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run it in yout environment
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. Install the dependencies:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+make deps
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. Start dev server
 
-## Learn More
+```bash
+make dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Git hooks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+There are 2 git hooks included. They're inside the `./doc/hooks` directory and they will run the pre-commit and pre-push tasks before pushing to any remote.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The pre-commit task is intended to run all the checks you consider before committing. At this very moment, it tries to format the code with ts-standard style guide.
 
-## Deploy on Vercel
+The pre-push task is intended to run all the checks you consider before pushing. At this very moment, does the same validation as pre-commit.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+In order to install this hooks, just run:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+make git/install-hooks
+```
