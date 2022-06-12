@@ -22,15 +22,8 @@ start: ## Start the built application
 	@docker run --rm --name=$(APP_NAME) -p 3002:3000 $(APP_NAME)
 
 lint: ## Lint the code
-	@yarn lint
+	@yarn lint --max-warnings 0 --fix
 
-git/install-hooks: ## Installs the hooks.
-	@./doc/hooks/install-hooks.sh
-
-git/pre-commit: ## Runs the tests before committing.
-	@yarn lint --max-warnings 0 1> /dev/null
+git/pre-commit: ## Runs the lint before committing.
+	@yarn lint-staged
 	@echo "$(GREEN)Pre commit checks passed"
-
-git/pre-push: ## Runs the tests before pushing.
-	@yarn lint --max-warnings 0 1> /dev/null
-	@echo "$(GREEN)Pre push checks passed"

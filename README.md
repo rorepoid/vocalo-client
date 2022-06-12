@@ -26,14 +26,12 @@ make dev
 
 ### Git hooks
 
-There are 2 git hooks included. They're inside the `./doc/hooks` directory and they will run the pre-commit and pre-push tasks before pushing to any remote.
+There is 1 git hook included, which is the pre-commit.
 
-The pre-commit task is intended to run all the checks you consider before committing. At this very moment, it tries to format the code with [ts-standard style guide](https://github.com/standard/ts-standard).
+The pre-commit hook is intended to run all the checks you consider before committing. At this very moment, it tries to check the recommended Next JS validation and format the code with the [ts-standard style guide](https://github.com/standard/ts-standard).
 
-The pre-push task is intended to run all the checks you consider before pushing. At this very moment, does the same validation as pre-commit.
-
-In order to install this hooks, just run:
+If you want to exec the pre-commit hook validation without commiting anything, run the following command:
 
 ```bash
-make git/install-hooks
+make git/pre-commit
 ```
