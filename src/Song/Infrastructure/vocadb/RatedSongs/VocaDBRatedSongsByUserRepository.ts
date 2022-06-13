@@ -11,8 +11,8 @@ export class VocaDBRatedSongsByUserRepository implements RatedSongsByUserReposit
     return response.data.items.map(item => ({
       id: item.song.id,
       title: item.song.name,
-      url: item.song.pvs.find(pv => pv.service === 'Youtube')?.url?.replace('/default.jpg', '/hqdefault.jpg'),
-      thumbUrl: item.song.pvs.find(pv => pv.service === 'Youtube')?.thumbUrl
+      url: item.song.pvs.find(pv => pv.service === 'Youtube')?.url,
+      thumbUrl: item.song.pvs.find(pv => pv.service === 'Youtube')?.thumbUrl?.replace('/default.jpg', '/hqdefault.jpg')
     }))
   }
 }
