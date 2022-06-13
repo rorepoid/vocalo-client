@@ -5,7 +5,7 @@ const nextConfig = {
     outputStandalone: true
   },
   images: {
-    domains: ['static.vocadb.net']
+    domains: ['static.vocadb.net', 'i.ytimg.com']
   }
 }
 
