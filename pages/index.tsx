@@ -14,7 +14,7 @@ interface SongsByUserProps {
 const HomePage: NextPage<SongsByUserProps> = ({ songs }) => (
   <Layout title='Vocaloid song list'>
     <Grid.Container gap={2} justify='flex-start'>
-      {songs.map(song => (
+      {songs.map((song: Song) => (
         <SongCard key={song.id} {...song} />
       ))}
     </Grid.Container>
@@ -26,7 +26,7 @@ const HomePage: NextPage<SongsByUserProps> = ({ songs }) => (
 // - The data comes from a headless CMS.
 // - The data can be publicly cached (not user-specific).
 // - The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
-export const getStaticProps: GetStaticProps<SongsByUserProps> = async (ctx) => {
+export const getStaticProps: GetStaticProps<SongsByUserProps> = async (_) => {
   const userId = 12 // riipah
 
   const repository = new VocaDBRatedSongsByUserRepository()
