@@ -1,4 +1,4 @@
-import { Song } from '../../Domain/Song'
+import { Song } from '../../Domain'
 import { RatedSongsByUserRepository } from '../../Domain/RatedSongs/RatedSongsByUserRepository'
 
 export class RatedSongsByUserSearcher {
