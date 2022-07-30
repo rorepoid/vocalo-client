@@ -3,6 +3,7 @@ import { Layout } from '../../components/layouts'
 import { Song } from '../../src/Song/Domain'
 import { VocaDBSongRepository, VocaDBRatedSongsByUserRepository } from '../../src/Song/Infrastructure/vocadb'
 import { RatedSongsByUserSearcher } from '../../src/Song/Application/RatedSongs'
+import { EnvUserId } from '../../src/User/Infrastructure'
 
 interface Props {
   song: Song
@@ -17,8 +18,8 @@ const SongPage: NextPage<Props> = ({ song }) => {
 }
 
 // You should use getStaticPaths if you’re statically pre-rendering pages that use dynamic routes
-export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const userId = 12 // riipah
+export const getStaticPaths: GetStaticPaths = async (_) => {
+  const userId = new EnvUserId().value
 
   const repository = new VocaDBRatedSongsByUserRepository()
   const songs: Song[] = await new RatedSongsByUserSearcher(repository).search(userId)

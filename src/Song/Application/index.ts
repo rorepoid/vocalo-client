@@ -1,1 +1,1 @@
-export type { RatedSongsByUserSearcher } from './RatedSongs'
+export * from './RatedSongs'
