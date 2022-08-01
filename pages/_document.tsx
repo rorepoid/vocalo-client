@@ -14,7 +14,12 @@ class MyDocument extends Document {
   render (): React.ReactElement {
     return (
       <Html lang='en'>
-        <Head>{CssBaseline.flush()}</Head>
+        <Head>
+          <link rel='manifest' href='/manifest.json' />
+          <link rel='apple-touch-icon' href='/favicon.ico' />
+          <meta name='theme-color' content='#FFFFFF' />
+          {CssBaseline.flush()}
+        </Head>
         <body>
           <Main />
           <NextScript />
