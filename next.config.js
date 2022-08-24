@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require('next-pwa')
-const runtimeCaching = require('next-pwa/cache')
+const withPWA = require('next-pwa')({
+  dest: 'public'
+})
 
 const nextConfig = {
   reactStrictMode: true,
@@ -9,11 +10,6 @@ const nextConfig = {
   },
   images: {
     domains: ['static.vocadb.net', 'i.ytimg.com', 'i1.ytimg.com']
-  },
-  pwa: {
-    dest: 'public',
-    runtimeCaching,
-    buildExcludes: [/middleware-build-manifest\.json$/]
   }
 }
 
